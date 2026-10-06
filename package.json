@@ -1,0 +1,13 @@
+{
+    "name": "PA3_340",
+    "version": "1.0.0",
+    "description": "GIMM 340 PA3 Arduino Cloud Temperature Sensor",
+    "main": "sensor-server.js",
+    "scripts": {
+        "start": "node sensor-server.js"
+    },
+    "dependencies": {
+        "express": "^5.1.0",
+        "mysql2": "^3.14.3"
+    }
+}
