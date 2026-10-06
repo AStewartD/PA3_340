@@ -5,7 +5,7 @@ int port = 8080;
 char ssid[] = "YOUR_WIFI_NAME";
 char pass[] = "YOUR_WIFI_PASSWORD";
 
-char server[] = "https://pa3-340.onrender.com/";
+char server[] = "pa3-340.onrender.com/";
 int port = 443;
 
 const int temperaturePin = A0;
