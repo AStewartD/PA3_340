@@ -1,15 +1,12 @@
 #include <WiFiS3.h>
 
-char server[] = "3.144.250.192";
-int port = 8080;
 char ssid[] = "YOUR_WIFI_NAME";
 char pass[] = "YOUR_WIFI_PASSWORD";
 
-char server[] = "pa3-340.onrender.com/";
+char server[] = "pa3-340.onrender.com";
 int port = 443;
 
 const int temperaturePin = A0;
-
 WiFiSSLClient client;
 
 void setup() {
@@ -31,9 +28,7 @@ void setup() {
 
 void loop() {
   int sensorValue = analogRead(temperaturePin);
-
   float voltage = sensorValue * (5.0 / 1023.0);
-
   float temperatureC = (voltage - 0.5) * 100.0;
   float temperatureF = (temperatureC * 9.0 / 5.0) + 32.0;
 
@@ -41,7 +36,6 @@ void loop() {
   Serial.print(temperatureF);
   Serial.println(" F");
 
-  // Create JSON data
   String jsonData = "{\"temperature\":" + String(temperatureF, 2) + "}";
 
   // Connect to Render
@@ -59,7 +53,7 @@ void loop() {
     client.println();
     client.println(jsonData);
 
-    // Read server response
+    // Read response
     while (client.connected()) {
       if (client.available()) {
         String response = client.readStringUntil('\n');
